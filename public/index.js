@@ -4,8 +4,7 @@ const container = document.querySelector('section');
 
 function submitHandler(e) {
 	e.preventDefault();
-	axios
-		.post('/api/student', { name: nameInput.value })
+	axios.post('/api/student', { name: nameInput.value })
 		.then((res) => {
 			container.innerHTML = '';
 			nameInput.value = '';
