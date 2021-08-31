@@ -14,11 +14,16 @@ const port = process.env.PORT || 4000;
 
 app.use(rollbar.errorHandler());
 
-app.listen(port, () => console.log(`take us to warp ${port}`));
-
 app.get('/', (req, res) => {
 	res.sendFile(path.join(__dirname, './public/index.html'));
 	rollbar.info('html file served succesfully');
+
+	// Try catch to catch error
+	try {
+		functionNotReal();
+	} catch (err) {
+		rollbar.critical(err);
+	}
 });
 
 app.listen(port, () => console.log(`take us to warp ${port}`));
