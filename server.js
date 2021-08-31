@@ -25,5 +25,9 @@ app.get('/', (req, res) => {
 		rollbar.critical(err);
 	}
 });
+app.get('/js', (req, res) => {
+	res.sendFile(path.join(__dirname, './public/script.js'));
+	rollbar.info('index.js file served succesfully');
+});
 
 app.listen(port, () => console.log(`take us to warp ${port}`));
