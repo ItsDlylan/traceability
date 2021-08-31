@@ -10,7 +10,7 @@ var rollbar = new Rollbar({
 const app = express();
 app.use(express.json());
 
-const port = process.env.PORT || 4545;
+const port = process.env.PORT || 4000;
 
 app.use(rollbar.errorHandler());
 
