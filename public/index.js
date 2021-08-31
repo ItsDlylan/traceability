@@ -1,4 +1,4 @@
-const axios = require('axios');
+const axios = require('axios').default;
 const addForm = document.querySelector('form');
 const nameInput = document.querySelector('input');
 const container = document.querySelector('section');
