@@ -24,10 +24,16 @@ app.get('/', (req, res) => {
 	} catch (err) {
 		rollbar.critical(err);
 	}
+}).catch((err) => {
+	alert(err + 'the site didnt load, try reloading.');
 });
+
 app.get('/js', (req, res) => {
 	res.sendFile(path.join(__dirname, './public/index.js'));
 	rollbar.info('index.js file served succesfully');
+}).catch((err) => {
+	alert(err + 'functionality might not work, try reloading.');
+	rollbar.critical('Index.js never got served.');
 });
 
 app.listen(port, () => console.log(`take us to warp ${port}`));
